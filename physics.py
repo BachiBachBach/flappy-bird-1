@@ -1,5 +1,5 @@
 import pygame
-
+from constants import *
 
 class Physics:
     def __init__(self):
@@ -7,16 +7,17 @@ class Physics:
     
 
 
-    def addGravity(objects: list):
-        for object in objects:
-            if type(object) == RigidBody:
-                print("hello")
-            else:
-                return
+    def addGravity(objects: list, gravityForce):
+            for object in objects:
+                if type(object) == RigidBody:
+                    object.position = list(object.position)
+                    object.position[1] += gravityForce
+                    object.position = tuple(object.position)
+                
+        
 
 
 
-import pygame
 
 class GameObject:
     def __init__(self, width, height):
@@ -32,8 +33,3 @@ class GameObject:
 class RigidBody(GameObject):
     def __init__(self, width, height):
         super().__init__(width, height) 
-
-    
-
-    
-
