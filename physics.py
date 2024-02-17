@@ -20,16 +20,18 @@ class Physics:
 
 
 class GameObject:
-    def __init__(self, width, height):
+    def __init__(self, width, height, list_of_game_objects):
         self.position = pygame.Vector2()
         self.width = width
         self.height = height
         self.image = pygame.Surface((width, height))
+        list_of_game_objects.append(self)
+        
     
     def move(self):
         return
 
 
 class RigidBody(GameObject):
-    def __init__(self, width, height):
-        super().__init__(width, height) 
+    def __init__(self, width, height, list_of_game_objects):
+        super().__init__(width, height, list_of_game_objects) 
