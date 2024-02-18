@@ -12,11 +12,8 @@ game_objects = []
 player = RigidBody(50, 50, game_objects)
 player.position = (250, 250)
 
-player2 = RigidBody(25, 25, game_objects)
-player2.position = (100, 100)
-
-
-
+pipe = GameObject(50, 50, game_objects)
+pipe.position = (10, 10)
 
 
 
@@ -26,10 +23,6 @@ def draw():
         screen.blit(object.image, (object.position))
         
 
-
-
-
-
 pygame.init()
 
 def main():
@@ -37,8 +30,8 @@ def main():
     clock = pygame.time.Clock()
 
 
-    gravityForce = 0
-    acceleration = 8
+    gravityForce = 1.5
+    acceleration = 1.07
 
     while running:
         screen.fill("white")
@@ -49,8 +42,8 @@ def main():
         Physics.addGravity(game_objects, gravityForce)
 
 
-        if gravityForce < 4:
-            gravityForce += acceleration
+        if gravityForce < 8:
+            gravityForce = gravityForce * acceleration
 
     
 
