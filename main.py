@@ -23,8 +23,12 @@ def draw():
         screen.blit(object.image, (object.position))
         
 
+
+
 pygame.init()
 
+print("Top: ", pipe.getTopPos(), "\n")
+print("Bottom: ",pipe.getBottomPos(), "\n")
 def main():
     running = True
     clock = pygame.time.Clock()
@@ -45,8 +49,10 @@ def main():
         if gravityForce < 8:
             gravityForce = gravityForce * acceleration
 
-    
 
+        # print("Top: ", player.getTopPos(), "\n")
+        # print("Bottom: ",player.getBottomPos(), "\n")
+        print(player.position[0])
         draw()
         pygame.display.flip()
 
