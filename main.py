@@ -48,7 +48,7 @@ def main():
                 player.position = (player.position[0], player.position[1]- 100)
                 gravityForce = 1.5
 
-        Physics.addGravity(game_objects, gravityForce)
+        # Physics.addGravity(game_objects, gravityForce)
 
 
         if gravityForce < 8:
