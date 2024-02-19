@@ -1,7 +1,7 @@
 import pygame
 from physics import *
 from constants import *
-
+from player_controller import *
 
 screen = pygame.display.set_mode((screen_width, screen_height))
 
@@ -35,13 +35,18 @@ def main():
 
 
     gravityForce = 1.5
-    acceleration = 1.07
+    acceleration = 1.09
+
+    keys = pygame.key.get_pressed()
 
     while running:
         screen.fill("white")
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+            elif event.type == pygame.KEYDOWN:
+                player.position = (player.position[0], player.position[1]- 100)
+                gravityForce = 1.5
 
         Physics.addGravity(game_objects, gravityForce)
 
@@ -49,10 +54,9 @@ def main():
         if gravityForce < 8:
             gravityForce = gravityForce * acceleration
 
+        if (keys[pygame.K_SPACE]):
+            print("space")
 
-        # print("Top: ", player.getTopPos(), "\n")
-        # print("Bottom: ",player.getBottomPos(), "\n")
-        print(player.position[0])
         draw()
         pygame.display.flip()
 
